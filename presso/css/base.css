@@ -1,0 +1,301 @@
+/* A solid fat font */
+@font-face {
+	font-family: 'ChunkFiveRegular';
+	src: url('../fonts/chunkfive/Chunkfive-webfont.eot');
+	src: local('☺'), url('../fonts/chunkfive/Chunkfive-webfont.woff') format('woff'), url('../fonts/chunkfive/Chunkfive-webfont.ttf') format('truetype'), url('../fonts/chunkfive/Chunkfive-webfont.svg#webfontb5K2fJwj') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'TitilliumText22LMedium';
+	src: url('../fonts/titillium/TitilliumText22L004-webfont.eot');
+	src: local('☺'), url('../fonts/titillium/TitilliumText22L004-webfont.woff') format('woff'), url('../fonts/titillium/TitilliumText22L004-webfont.ttf') format('truetype'), url('../fonts/titillium/TitilliumText22L004-webfont.svg#webfont9tlFqxpn') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Font suitable for code */
+@font-face {
+	font-family: 'BitstreamVeraSansMonoOblique';
+	src: url('../fonts/bitstream/VeraMono-Italic-webfont.eot');
+	src: local('☺'), url('../fonts/bitstream/VeraMono-Italic-webfont.woff') format('woff'), url('../fonts/bitstream/VeraMono-Italic-webfont.ttf') format('truetype'), url('../fonts/bitstream/VeraMono-Italic-webfont.svg#webfontLSzAXRsV') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'UnderwoodChampionRegular';
+	src: url('../fonts/underwood/underwood_champion-webfont.eot');
+	src: local('☺'), url('../fonts/underwood/underwood_champion-webfont.woff') format('woff'), url('../fonts/underwood/underwood_champion-webfont.ttf') format('truetype'), url('../fonts/underwood/underwood_champion-webfont.svg#webfontOXGyqG7l') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+body {
+    font-family: 'TitilliumText22LMedium', Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: #fff;
+    background: #000;
+}
+
+
+h1 {
+    font-family: ChunkFiveRegular;
+    font-size: 700%;
+    display: inline;
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
+}
+
+h2 {
+    padding: 0;
+    margin: 28px 0 0 0;
+    font-size: 400%;
+}
+
+
+header {
+    font-weight: normal;
+    text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+    position: absolute;
+    left: 30px;
+    top: 25px;
+    margin: 0;
+    padding: 0;
+    font-size: 48px;
+}
+
+
+section{
+    text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+    margin: 80px 40px 0;
+    display: block;
+    overflow: hidden;
+}
+
+
+a {
+    color: inherit;
+    display: inline-block;
+    text-decoration: none;
+    padding-bottom: 1px;
+}
+a:hover{
+    border-bottom: 1px solid #999;
+    padding-bottom: 0;
+}
+
+li {
+    font-size: 22px;
+    list-style: none;
+    margin: 8px;
+}
+
+p{
+    margin: 0 0 0 0;
+}
+
+cite{
+    line-height: 160%;
+    display: block;
+    margin-top: 2%;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+small{
+    display: block;
+    color: #999;
+    text-shadow: none;
+    margin-top: 2%;
+}
+
+pre {
+    text-align: left;
+    font-family: 'BitstreamVeraSansMonoOblique', Courier;
+    padding: 10px 20px;
+    font-size: 1.4em;
+}
+
+/*
+pre {
+    text-align: left;
+    font-family: 'BitstreamVeraSansMonoOblique', Courier;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: rgba(100, 125, 66, 0.1);
+    border: 1px solid rgba(0, 102, 51, 0.2);
+}
+*/
+img.framed, canvas.framed, video.framed, div.framed {
+    background: #fff;
+    padding: 4px;
+    border: 1px solid rgba(0, 102, 51, 0.2);
+}
+
+p.center {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    height: 500px;
+    width: 900px;
+}
+
+.slide table {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.presentation {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    display: block;
+    overflow: hidden;
+}
+
+
+#presentation-counter{
+    display: none;
+}
+
+.slides {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    display: block;
+    -webkit-transition: -webkit-transform 1s ease-in-out;
+    -moz-transition: -moz-transform 1s ease-in-out;
+    -o-transition: -o-transform 1s ease-in-out;
+    transition: transform 1s ease-in-out;
+}
+
+.slide {
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    width: 900px;
+    height: 700px;
+    left: 50%;
+    top: 50%;
+    margin-top: -350px;
+    -webkit-transition: margin 0.50s ease-in-out;
+    -moz-transition: margin 0.50s ease-in-out;
+    -o-transition: margin 0.50s ease-in-out;
+    transition: margin 0.50s ease-in-out;
+}
+
+
+.slide .counter {
+    color: #333;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    display: block;
+    font-size: 12px;
+}
+
+.slide footer{
+    font-family: UnderwoodChampionRegular;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 20px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.slide.far-past {
+    display: block;
+    margin-left: -2400px;
+}
+
+.slide.past {
+    visibility: visible;
+    display: block;
+    margin-left: -1400px;
+}
+
+.slide.current {
+    visibility: visible;
+    display: block;
+    margin-left: -450px;
+}
+
+.slide.future {
+    visibility: visible;
+    display: block;
+    margin-left: 500px;
+}
+
+.slide.far-future {
+    display: block;
+    margin-left: 1500px;
+}
+
+
+body.three-d div.presentation {
+    /*background: -webkit-gradient(radial, 50% 50%, 10, 50% 50%, 1000, from(#333), to(#000));        */
+}
+
+body.three-d div.slides {
+    -webkit-transform: translateX(50px) scale(0.8) rotateY(10deg);
+    -moz-transform: translateX(50px) scale(0.8) rotateY(10deg);
+    -o-transform: translateX(50px) scale(0.8) rotateY(10deg);
+    transform: translateX(50px) scale(0.8) rotateY(10deg);
+}
+
+
+section.middle {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    height: 700px;
+    width: 900px;
+}
+
+
+.key {
+    font-family: 'BitstreamVeraSansMonoOblique';
+    display: inline-block;
+    padding: 6px 10px 3px 10px;
+    font-size: 25px;
+    line-height: 30px;
+    text-shadow: none;
+    letter-spacing: 0;
+    bottom: 10px;
+    position: relative;
+    border-radius: 10px;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+
+}
+
+.key { font-family: Arial; }
+:not(header) > .key {
+    margin: 0 5px;
+    bottom: 4px;
+}
+
+.two-column {
+    width: 48%;
+    margin-right: 2%;
+    float: left;
+}

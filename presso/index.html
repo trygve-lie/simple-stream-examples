@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS Everywhere</title>
+    <link rel="stylesheet" href="css/base.css" media="all">
+    <link rel="stylesheet" href="css/custom.css" media="all">
+    <link rel="stylesheet" href="css/default.css" media="all">
+    <link rel="stylesheet" href="css/ascetic.css" media="all">
+</head>
+<body>
+
+<div class="presentation">
+
+<div id="presentation-counter"> </div>
+
+
+<div class="slides">
+
+
+<div class="slide">
+<section class="middle">
+<h1>|</h1>
+<h3>One reason why I like node.js</h3>
+</section>
+</div>
+
+
+<div class="slide">
+<header>A simple http server</header>
+<section class="middle">
+<pre class="javascript"><code>var http = require('http'),
+    fs = require('fs');
+
+var server = http.createServer(function (req, res) {
+
+    fs.readFile('media/image.png', function (err, data) {
+        res.end(data);
+    });
+
+}).listen(8000);</code></pre>
+</section>
+</div>
+
+
+<div class="slide">
+<section class="middle">
+<h2>~9MB in memory</h2>
+</section>
+</div>
+
+
+<div class="slide">
+<section class="middle">
+<h2>ps -ax | grep node</h2>
+</section>
+</div>
+
+
+<div class="slide">
+<section class="middle">
+<h2>src.pipe(dest)</h2>
+</section>
+</div>
+
+
+<div class="slide">
+<header>A better http server</header>
+<section class="middle">
+<pre class="javascript"><code>var http = require('http'),
+    fs = require('fs');
+
+var server = http.createServer(function (req, res) {
+
+    var stream = fs.createReadStream('media/image.png');
+    stream.pipe(res);
+
+}).listen(8000);</code></pre>
+</section>
+</div>
+
+
+<div class="slide">
+<section class="middle">
+<h2>~1KB in memory</h2>
+</section>
+</div>
+
+
+<div class="slide">
+<header>A simple pipe</header>
+<section class="middle">
+<pre class="javascript"><code>var http = require('http'),
+    fs = require('fs'),
+    spawn = require('child_process').spawn;
+
+var server = http.createServer(function(req, res) {
+    var options = {
+        host    : 'static.trygve-lie.com',
+        port    : 80,
+        path    : '/work/image.png',
+        method  : 'GET'
+    }
+
+    http.request(options, function(response){
+        var args    = ['-', '-resize', '20%', '-quality', '50', '-'],
+            convert = spawn('convert', args);
+
+        response.pipe(convert.stdin);
+        convert.stdout.pipe(res);
+    }).end();
+
+}).listen(8000);</code></pre>
+</section>
+</div>
+
+
+<div class="slide">
+<section class="middle">
+<h2>Low memory usage in app</h2>
+<h2>No local disk io</h2>
+</section>
+</div>
+
+
+<div class="slide">
+<section class="middle">
+<h2>src.pipe(destA)</h2>
+<h2>src.pipe(destB)</h2>
+</section>
+</div>
+
+
+<div class="slide">
+<header>Mega pipes</header>
+<section class="middle">
+<pre class="javascript"><code>var http = require('http'),
+    fs = require('fs'),
+    spawn = require('child_process').spawn;
+
+var server = http.createServer(function(req, res) {
+    var options = {
+        host    : 'static.trygve-lie.com',
+        port    : 80,
+        path    : '/work/image.png',
+        method  : 'GET'
+    }
+
+    http.request(options, function(response){
+        var args    = ['-', '-resize', '20%', '-quality', '50', '-'],
+            convert = spawn('convert', args),
+            toDisk  = fs.createWriteStream('media/small.png');
+
+        response.pipe(convert.stdin);
+
+        convert.stdout.pipe(res);
+        convert.stdout.pipe(toDisk);
+    }).end();
+
+}).listen(8000);</code></pre>
+</section>
+</div>
+
+
+<div class="slide">
+<section class="middle">
+<h2>stream() || die()</h2>
+</section>
+</div>
+
+
+</div>
+
+</div>
+<script src="js/slideshow.js"> </script>
+<script src="js/highlight.pack.js"> </script>
+<script>
+  hljs.tabReplace = '    ';
+  hljs.initHighlightingOnLoad();
+</script>
+
+</body>
+</html>
